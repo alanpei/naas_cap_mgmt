@@ -29,18 +29,25 @@ CREATE TABLE `es_storage` (
 
 /*Data for the table `es_storage` */
 
+insert  into `es_storage`(`es_id`,`storage_total`,`storage_used`) values 
+(1,14,4);
+
 /*Table structure for table `idc_cpu_cap` */
 
 DROP TABLE IF EXISTS `idc_cpu_cap`;
 
 CREATE TABLE `idc_cpu_cap` (
-  `idc_pod_id` tinyint(2) DEFAULT NULL,
+  `idc_pod_id` tinyint(2) NOT NULL,
   `idc_pod_name` char(10) DEFAULT NULL,
-  `cpu_total` float DEFAULT NULL,
-  `cpu_used` float DEFAULT NULL
+  `cpu_total` smallint(4) DEFAULT NULL,
+  `cpu_used` smallint(4) DEFAULT NULL,
+  PRIMARY KEY (`idc_pod_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `idc_cpu_cap` */
+
+insert  into `idc_cpu_cap`(`idc_pod_id`,`idc_pod_name`,`cpu_total`,`cpu_used`) values 
+(1,'KIDC',50,20);
 
 /*Table structure for table `nfv_cpu_cap` */
 
@@ -55,6 +62,9 @@ CREATE TABLE `nfv_cpu_cap` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `nfv_cpu_cap` */
+
+insert  into `nfv_cpu_cap`(`nfv_pod_id`,`nfv_pod_name`,`cpu_total`,`cpu_used`) values 
+(1,'Hood2',200,130);
 
 /*Table structure for table `nsg_licenses` */
 
@@ -86,6 +96,10 @@ CREATE TABLE `vsc_esxi_cap` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `vsc_esxi_cap` */
+
+insert  into `vsc_esxi_cap`(`vsc_pod_id`,`vsc_pod_name`,`host_count`,`vsc_count`,`vsc_cap`) values 
+(1,'Barlow',11,30,70),
+(2,'Hood',11,30,70);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
